@@ -1,0 +1,52 @@
+# makesrc
+
+
+## En gros
+
+Petit utilitaire simple et désuet, qui demande une installation pour être utile.
+
+L'objectif est de pouvoir lancer des commandes du type :
+- makesrc -s patternSource [-n nomFichier] [-t titre] [-a auteur]
+Une fois lancée, le script génère les fichiers du pattern demandé, en modifiant les noms de fichiers, 
+voir les fichiers eux-mêmes, pour qu'ils collent aux arguments.
+
+
+
+
+## Installation
+L'installation demande un BAC+6.5 en astrochimie biomoléculaire :
+- collez tous les fichiers du dépôt dans le répertoire d'installation (id est là où makesrc sera chez lui)
+- dans votre bashrc, faites un bel alias direct sur l'appel de makesrc
+
+Hésitez pas à modifier les fichiers patterns, c'est eux qui contiennent les structures de fichiers de base.
+Surtout que dans l'état actuel, c'est à ma façon de coder qu'ils conviennent.
+
+
+
+## Quelques indications
+Le programme est fait sous linux, et codé intégralement en perl. 
+Normalement, les mac devraient le faire tourner, par contre, les windowsiens, va falloir le modifier à la mimine.
+Si vous avez des idées de paramètres à envoyer en plus, des insultes à m'envoyer ou des améliorations à proposer, hésitez pas à faire des pulls requests, un dépôt git c'est plus ou moins fait pour ça.
+Notez que le seul argument obligatoire est la source à utiliser; les autres sont optionnels. (les valeurs par défaut sont absolument quelconques)
+
+Les sources de ce dépôt se limitent à celles que j'utilise souvent, id est le c, le cpp, le perl, le python, beamer (diapo en tex), et tex.
+En rajouter est pas très compliqué; allez voir le script, et regardez comment les dossiers sont organisés.
+
+
+
+
+## Exemple d'installation
+Chez moi, j'ai mit makesrc dans ~/Programmation/Perl/makesrc/
+Donc, dans mon bashrc, j'ai collé cette ligne :
+- ab makesrc='perl ~/Programmation/Perl/makesrc/makesrc.pl'
+Du coup, je peux faire ça n'importe où dans mon terminal :
+- makesrc -s beamer
+- makesrc -s cpp -t bob
+- makesrc -s c -n monCodeDeTP -a JeanMichel
+- makesrc -s tex -n monRapportTropYoupi -t Rapport -a JeanMichel
+
+
+
+
+## Licence
+WTFPL : http://www.wtfpl.net/
