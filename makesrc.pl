@@ -71,7 +71,7 @@ for (my $i = 0; $i < (scalar(@ARGV)); $i++) {
 
 # si aucune source indiquée
 if($source eq "") {
-    print("Pas de source indiquées !\n");
+    print("Pas de langage indiqué !\n");
     exit(0);
 }
 # sinon, on choppe la source correspondante
@@ -88,7 +88,7 @@ if(lc($source) eq "c") {
 } elsif(lc($source) eq "pl") {
     $pattern = $pattern."pl/*";
 } else {
-    print("Source non gérée. Essayez parmis $DOC_source\n");
+    print("Langage non géré. Essayez parmi $DOC_source\n");
     exit(0);
 }
 
