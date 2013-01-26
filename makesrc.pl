@@ -28,7 +28,7 @@ use File::Copy; # copie de fichiers
 ##################
 # INITIALISATIONS
 ##################
-my $DOC_arg = "makesrc -a language [-n name] [-t title] [-a author]";
+my $DOC_arg = "makesrc -s language [-n name] [-t title] [-a author]";
 my $DOC_source = "c, cpp, tex, py, pl";
 my $dir_name = dirname($0); # répertoire du script
 my $pattern = $dir_name."/"; # chemin vers fichiers pattern
