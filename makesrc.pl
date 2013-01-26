@@ -70,7 +70,7 @@ for (my $i = 0; $i < (scalar(@ARGV)); $i++) {
 
 # si aucune source indiquée
 if($source eq "") {
-    print("Pas de source indiquées !");
+    print("Pas de source indiquées !\n");
     exit(0);
 }
 # sinon, on choppe la source correspondante
@@ -87,7 +87,8 @@ if(lc($source) eq "c") {
 } elsif(lc($source) eq "pl") {
     $pattern = $pattern."pl/*";
 } else {
-    print("Source non gérée. Essayez parmis $DOC_source");
+    print("Source non gérée. Essayez parmis $DOC_source\n");
+    exit(0);
 }
 
 # Liste des fichiers d'entrée
