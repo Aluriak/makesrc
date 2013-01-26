@@ -38,7 +38,7 @@ En rajouter est pas très compliqué; allez voir le script, et regardez comment 
 ## Exemple d'installation
 Chez moi, j'ai mit makesrc dans ~/Programmation/Perl/makesrc/
 Donc, dans mon bashrc, j'ai collé cette ligne :
-- ab makesrc='perl ~/Programmation/Perl/makesrc/makesrc.pl'
+- ab makesrc='~/Programmation/Perl/makesrc/makesrc.pl'
 
 Du coup, je peux faire ça n'importe où dans mon terminal :
 - makesrc -s beamer
