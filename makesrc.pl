@@ -103,7 +103,7 @@ my @INfiles = glob $pattern;
 ##################
 # Pour chaque fichier d'entrée
 foreach my $corps (@INfiles) {
-    
+
 
     # NOM DE LA CIBLE
     my $cible = $corps;                # à partir du nom du pattern on déduit le nom
