@@ -1,3 +1,4 @@
+#!/usr/bin/env perl
 ###########################################
 #
 # makesrc
@@ -28,7 +29,7 @@ use File::Copy; # copie de fichiers
 ##################
 # INITIALISATIONS
 ##################
-my $DOC_arg = "makesrc -a language [-n name] [-t title] [-a author]";
+my $DOC_arg = "makesrc -s language [-n name] [-t title] [-a author]";
 my $DOC_source = "c, cpp, tex, py, pl";
 my $dir_name = dirname($0); # répertoire du script
 my $pattern = $dir_name."/"; # chemin vers fichiers pattern
@@ -70,7 +71,7 @@ for (my $i = 0; $i < (scalar(@ARGV)); $i++) {
 
 # si aucune source indiquée
 if($source eq "") {
-    print("Pas de source indiquées !\n");
+    print("Pas de langage indiqué !\n");
     exit(0);
 }
 # sinon, on choppe la source correspondante
@@ -87,7 +88,7 @@ if(lc($source) eq "c") {
 } elsif(lc($source) eq "pl") {
     $pattern = $pattern."pl/*";
 } else {
-    print("Source non gérée. Essayez parmis $DOC_source\n");
+    print("Langage non géré. Essayez parmi $DOC_source\n");
     exit(0);
 }
 
@@ -102,7 +103,7 @@ my @INfiles = glob $pattern;
 ##################
 # Pour chaque fichier d'entrée
 foreach my $corps (@INfiles) {
-    
+
 
     # NOM DE LA CIBLE
     my $cible = $corps;                # à partir du nom du pattern on déduit le nom
