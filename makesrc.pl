@@ -29,7 +29,7 @@ use File::Copy; # copie de fichiers
 ##################
 # INITIALISATIONS
 ##################
-my $DOC_arg = "makesrc -s language [-n name] [-t title] [-a author]";
+my $DOC_arg = "makesrc source [-n name] [-t title] [-a author]";
 my $DOC_source = "c, cpp, tex, py, pl";
 my $dir_name = dirname($0); # répertoire du script
 my $pattern = $dir_name."/"; # chemin vers fichiers pattern
@@ -47,17 +47,16 @@ my $author = "AUTHOR";
 # IDENTIFICATIONS
 ##################
 
-if(scalar(@ARGV) <= 1) {
+if(scalar(@ARGV) <= 0) {
     print ("Arguments attendus : ", $DOC_arg);
     exit(0);
 }
 
 
-# arguments
-for (my $i = 0; $i < (scalar(@ARGV)); $i++) {
-    if($ARGV[$i] eq "-s" and $i < (scalar(@ARGV)-1)) {
-        $source = $ARGV[$i+1];
-    }
+# arguments (le premier est le type de source)
+$source = $ARGV[0];
+# (les suivants des options supplémentaires)
+for (my $i = 2; $i < (scalar(@ARGV)); $i++) {
     if($ARGV[$i] eq "-n" and $i < (scalar(@ARGV)-1)) {
         $name = $ARGV[$i+1];
     }
@@ -87,6 +86,8 @@ if(lc($source) eq "c") {
     $pattern = $pattern."py/*";
 } elsif(lc($source) eq "pl") {
     $pattern = $pattern."pl/*";
+} elsif(lc($source) eq "pro") {
+    $pattern = $pattern."pro/*";
 } else {
     print("Langage non géré. Essayez parmi $DOC_source\n");
     exit(0);
