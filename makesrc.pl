@@ -56,7 +56,7 @@ if(scalar(@ARGV) <= 0) {
 # arguments (le premier est le type de source)
 $source = $ARGV[0];
 # (les suivants des options supplémentaires)
-for (my $i = 2; $i < (scalar(@ARGV)); $i++) {
+for (my $i = 1; $i < (scalar(@ARGV)); $i++) {
     if($ARGV[$i] eq "-n" and $i < (scalar(@ARGV)-1)) {
         $name = $ARGV[$i+1];
     }
