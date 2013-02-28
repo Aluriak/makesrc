@@ -6,8 +6,10 @@
 /*
   * LIBRARIES
   */
-#include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
+#include <cstdlib>
+#include <fstream>
+#include <sstream>
 
 
 

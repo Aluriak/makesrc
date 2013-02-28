@@ -1,5 +1,6 @@
 #include "SCRIPTPERLNAME.h"
 
+using namespace std;
 
 
 /*
