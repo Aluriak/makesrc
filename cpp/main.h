@@ -4,34 +4,47 @@
 
 
 /*
- * LIBRARIES
- */
+  * LIBRARIES
+  */
+// STD LIB
 #include <iostream>
 #include <cstdlib>
 #include <fstream>
 #include <sstream>
+// LOCAL MODULES
 
 
 
 
 /*
- * DEFINES
- */
+  * DEFINES
+  */
 
 
 
 
 /*
- * PREDECLARATIONS
- */
+  * PREDECLARATIONS
+  */
 
 
 
 
 
 /*
- * PROTOTYPES
- */
+  * CLASS
+  */
+class SCRIPTPERLNAME {
+	public:
+	// CONSTRUCTOR
+		SCRIPTPERLNAME();
+		~SCRIPTPERLNAME();
+	// PUBLIC METHODS
+	// ACCESSORS
+	private:
+	// ATTRIBUTES
+	// PRIVATE METHODS
+};
 
 
 
