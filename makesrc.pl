@@ -121,12 +121,12 @@ foreach my $corps (@INfiles) {
     my $line;
     while($line = <IN>) {
         # NORMALs substitutions
-        $line =~ s/SCRIPTPERLTITLE/$title/;
-        $line =~ s/SCRIPTPERLAUTHOR/$author/;
-        $line =~ s/SCRIPTPERLNAME/$name/;
+        $line =~ s/SCRIPTPERLTITLE/$title/g;
+        $line =~ s/SCRIPTPERLAUTHOR/$author/g;
+        $line =~ s/SCRIPTPERLNAME/$name/g;
         # UPPERs substitutions
         my $upperName = uc($name);
-        $line =~ s/SCRIPTPERLUPPERNAME/$upperName/;
+        $line =~ s/SCRIPTPERLUPPERNAME/$upperName/g;
         print (OUT $line);
     }
 
