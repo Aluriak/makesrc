@@ -4,8 +4,8 @@
 
 
 /*
-  * LIBRARIES
-  */
+ * LIBRARIES
+ */
 #include <iostream>
 #include <cstdlib>
 #include <fstream>
@@ -15,23 +15,23 @@
 
 
 /*
-  * DEFINES
-  */
+ * DEFINES
+ */
 
 
 
 
 /*
-  * PREDECLARATIONS
-  */
+ * PREDECLARATIONS
+ */
 
 
 
 
 
 /*
-  * PROTOTYPES
-  */
+ * PROTOTYPES
+ */
 
 
 

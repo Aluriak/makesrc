@@ -4,8 +4,8 @@
 
 
 /*
-  * LIBRARIES
-  */
+ * LIBRARIES
+ */
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -13,23 +13,23 @@
 
 
 /*
-  * DEFINES
-  */
+ * DEFINES
+ */
 
 
 
 
 /*
-  * PREDECLARATIONS
-  */
+ * PREDECLARATIONS
+ */
 
 
 
 
 
 /*
-  * PROTOTYPES
-  */
+ * PROTOTYPES
+ */
 
 
 

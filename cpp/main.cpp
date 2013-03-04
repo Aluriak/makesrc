@@ -4,8 +4,8 @@ using namespace std;
 
 
 /*
-  * MAIN
-  */
+ * MAIN
+ */
 int main(int argc, char* argv[]) {
         return EXIT_SUCCESS;
 }
