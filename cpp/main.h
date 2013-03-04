@@ -4,8 +4,8 @@
 
 
 /*
-  * LIBRARIES
-  */
+ * LIBRARIES
+ */
 // STD LIB
 #include <iostream>
 #include <cstdlib>
@@ -17,23 +17,23 @@
 
 
 /*
-  * DEFINES
-  */
+ * DEFINES
+ */
 
 
 
 
 /*
-  * PREDECLARATIONS
-  */
+ * PREDECLARATIONS
+ */
 
 
 
 
 
 /*
-  * CLASS
-  */
+ * CLASS
+ */
 class SCRIPTPERLNAME {
 	public:
 	// CONSTRUCTOR
