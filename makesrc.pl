@@ -48,8 +48,8 @@ my $author = "AUTHOR";
 ##################
 
 if(scalar(@ARGV) <= 0) {
-    print ("Arguments attendus : ", $DOC_arg);
-    exit(0);
+        print ("Arguments attendus : ", $DOC_arg);
+        exit(0);
 }
 
 
@@ -57,40 +57,40 @@ if(scalar(@ARGV) <= 0) {
 $source = $ARGV[0];
 # (les suivants des options supplémentaires)
 for (my $i = 1; $i < (scalar(@ARGV)); $i++) {
-    if($ARGV[$i] eq "-n" and $i < (scalar(@ARGV)-1)) {
-        $name = $ARGV[$i+1];
-    }
-    if($ARGV[$i] eq "-t" and $i < (scalar(@ARGV)-1)) {
-        $title = $ARGV[$i+1];
-    }
-    if($ARGV[$i] eq "-a" and $i < (scalar(@ARGV)-1)) {
-        $author = $ARGV[$i+1];
-    }
+        if($ARGV[$i] eq "-n" and $i < (scalar(@ARGV)-1)) {
+                $name = $ARGV[$i+1];
+        }
+        if($ARGV[$i] eq "-t" and $i < (scalar(@ARGV)-1)) {
+                $title = $ARGV[$i+1];
+        }
+        if($ARGV[$i] eq "-a" and $i < (scalar(@ARGV)-1)) {
+                $author = $ARGV[$i+1];
+        }
 }
 
 # si aucune source indiquée
 if($source eq "") {
-    print("Pas de langage indiqué !\n");
-    exit(0);
+        print("Pas de langage indiqué !\n");
+        exit(0);
 }
 # sinon, on choppe la source correspondante
 if(lc($source) eq "c") {
-    $pattern = $pattern."c/*";
+        $pattern = $pattern."c/*";
 } elsif(lc($source) eq "beamer") {
-    $pattern = $pattern."beamer/*";
+        $pattern = $pattern."beamer/*";
 } elsif(lc($source) eq "tex") {
-    $pattern = $pattern."tex/*";
+        $pattern = $pattern."tex/*";
 } elsif(lc($source) eq "cpp") {
-    $pattern = $pattern."cpp/*";
+        $pattern = $pattern."cpp/*";
 } elsif(lc($source) eq "py") {
-    $pattern = $pattern."py/*";
+        $pattern = $pattern."py/*";
 } elsif(lc($source) eq "pl") {
-    $pattern = $pattern."pl/*";
+        $pattern = $pattern."pl/*";
 } elsif(lc($source) eq "pro") {
-    $pattern = $pattern."pro/*";
+        $pattern = $pattern."pro/*";
 } else {
-    print("Langage non géré. Essayez parmi $DOC_source\n");
-    exit(0);
+        print("Langage non géré. Essayez parmi $DOC_source\n");
+        exit(0);
 }
 
 # Liste des fichiers d'entrée
@@ -106,33 +106,37 @@ my @INfiles = glob $pattern;
 foreach my $corps (@INfiles) {
 
 
-    # NOM DE LA CIBLE
-    my $cible = $corps;                # à partir du nom du pattern on déduit le nom
-    $cible =~ s/.*\.(.*)$/$name\.$1/;  # de la cible : name.extension. Le name est connu
-    $cible = cwd()."/".$cible;         # et l'dxtension celle du fichier corps
+	# NOM DE LA CIBLE
+	my $cible = $corps;                # à partir du nom du pattern on déduit le nom
+	if($cible =~ m/.*\.(.*)$/) { # si le pattern a une extension
+		$cible =~ s/.*\.(.*)$/$name.$1/;  # de la cible : name.extension    Le name est connu
+	} else {
+		$cible =~ s/.*\/([^\/]*)$/$1/;  # de la cible : name   Le name est connu
+	}
+	$cible = cwd()."/".$cible;         # et l'dxtension celle du fichier corps
 
-    # OUVERTURES
-    print "cible    : ".$cible."\n";
-    print "patterns : ".$corps."\n";
-    open(OUT, ">$cible") or die("err: $!\n");
-    open(IN,  "<$corps") or die("err: $!\n");
+        # OUVERTURES
+        print "cible    : ".$cible."\n";
+        print "patterns : ".$corps."\n";
+        open(OUT, ">$cible") or die("err: $!\n");
+        open(IN,  "<$corps") or die("err: $!\n");
 
-    # RECOPIAGE
-    my $line;
-    while($line = <IN>) {
-        # NORMALs substitutions
-        $line =~ s/SCRIPTPERLTITLE/$title/g;
-        $line =~ s/SCRIPTPERLAUTHOR/$author/g;
-        $line =~ s/SCRIPTPERLNAME/$name/g;
-        # UPPERs substitutions
-        my $upperName = uc($name);
-        $line =~ s/SCRIPTPERLUPPERNAME/$upperName/g;
-        print (OUT $line);
-    }
+        # RECOPIAGE
+        my $line;
+        while($line = <IN>) {
+                # NORMALs substitutions
+                $line =~ s/SCRIPTPERLTITLE/$title/g;
+                $line =~ s/SCRIPTPERLAUTHOR/$author/g;
+                $line =~ s/SCRIPTPERLNAME/$name/g;
+                # UPPERs substitutions
+                my $upperName = uc($name);
+                $line =~ s/SCRIPTPERLUPPERNAME/$upperName/g;
+                print (OUT $line);
+        }
 
-    # FERMETURES
-    close(OUT);
-    close(IN);
+        # FERMETURES
+        close(OUT);
+        close(IN);
 
 
 
