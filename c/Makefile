@@ -25,8 +25,8 @@ compile: main.o
 #################################
 # MAIN				#
 #################################
-main.o:	main.cpp main.h
-	$(CC) $(FLAGS) -c src/main.cpp
+main.o:	main.c main.h
+	$(CC) $(FLAGS) -c main.c
 
 
 
